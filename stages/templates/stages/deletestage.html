@@ -1,0 +1,22 @@
+{% extends 'Master.html' %}
+{% load static %}
+
+{% block Content %}
+ <!--  -->
+    <div class="profileC">
+        <div>
+            <img src="{% static 'user-profile.png' %}" alt="">
+        </div>
+        <div>
+            <h1>are u sure you want to delete {{item}}?</h1>
+            <form action="{% url 'stage:deletestg' item.id %}" method="post">
+                {% csrf_token %}
+                <a href="{% url 'stage:stglist' %}">Cancel</a>
+                <input type="submit" value="Confirm">
+            </form> 
+        </div>
+    </div>
+    <!--  -->
+{% endblock Content %}
+    
+   

@@ -1,0 +1,21 @@
+{% extends 'Master.html' %}
+{% load static %}
+
+ 
+ {% block Content %}
+    <div class="profileC">
+        <div>
+            <img src="{% static 'profile.png' %}" alt="">
+        </div>
+        <div>
+            <h1>User Information</h1>
+        <p>UserName:<span>{{user}}</span></p>
+        <p>FirstName:<span>{{user.first_name}}</span></p>
+        <p>LastName:<span>{{user.last_name}}</span></p>
+        <p>email:<span>{{user.email}}</span></p>
+        <a href="{% url 'Accounts:userEdit' %}">Edit Info</a>
+        </div>
+    </div>
+     
+ {% endblock Content %}
+     

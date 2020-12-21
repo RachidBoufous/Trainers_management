@@ -1,0 +1,25 @@
+{% extends 'Master.html' %}
+{% load static %}
+
+{% block Content %}
+ <!--  -->
+    <div class="profileC">
+        <div>
+            <img src="{% static 'log-in.png' %}" alt="">
+        </div>
+        <div>
+            <h1>Log in</h1>
+            <form action="{% url 'Accounts:Loginview' %}" method="post">
+                {% csrf_token %}
+                {{form}}
+                {% if request.GET.next %}
+                    <input type="hidden" name="next" value="{{request.GET.next}}">
+                {% endif %}
+                    
+                <input type="submit" value="Log in">
+            </form>
+        </div>
+    </div>
+    <!--  -->
+{% endblock Content %}
+    

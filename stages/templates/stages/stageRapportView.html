@@ -1,0 +1,12 @@
+{% extends 'Master.html' %}
+{% load static %}
+{% block Content %}
+ <!--  -->
+    <div class="rapportF">
+        <h1>rapport</h1>
+        <div class="rapport">
+            <embed src="{{file}}" type="application/pdf" width="100%" height="600px" />
+        </div>
+    </div>
+    <!--  -->
+{% endblock Content %}

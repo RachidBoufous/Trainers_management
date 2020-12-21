@@ -1,0 +1,27 @@
+{% extends 'Master.html' %}
+{% load static %}
+
+ 
+ {% block Content %}
+    <div class="profileC">
+        <div>
+            <img src="{% static 'student.png' %}" alt="">
+        </div>
+        <div>
+            <h1>User Information</h1>
+        <p>UserName:<span>{{form}}</span></p>
+        <p>FirstName:<span>{{form.nom}}</span></p>
+        <p>LastName:<span>{{form.prenom}}</span></p>
+        <p>BirthDate:<span>{{form.dateDeNaissance}}</span></p>
+        <p>Phone:<span>{{form.telephone}}</span></p>
+        <p>E-mail:<span>{{form.mail}}</span></p>
+        <p>Sexe:<span>{{form.Sexe}}</span></p>
+        <p>Filiere:<span>{{form3.Intitule}}</span></p>
+        <p>Niveau:<span>{{form2.Intitule}}</span></p>
+
+        
+        <!-- <a href="{% url 'Accounts:userEdit' %}">Edit Info</a> -->
+        </div>
+    </div>
+     
+ {% endblock Content %}

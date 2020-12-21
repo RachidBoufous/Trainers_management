@@ -1,0 +1,22 @@
+{% extends 'Master.html' %}
+{% load static %}
+
+{% block Content %}
+ <!--  -->
+    <div class="profileC">
+        <div>
+            <img src="{% static 'Completed.png' %}" alt="">
+        </div>
+        <div >
+            <h1>Update Trainer Informations</h1>
+            <form action="{% url 'stagaire:EditStagaire' stg_id=A.id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form}}
+                <input type="submit" value="update">
+            </form>
+        </div>
+    </div>
+    <!--  -->
+{% endblock Content %}
+    
+   

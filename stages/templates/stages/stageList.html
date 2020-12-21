@@ -1,0 +1,54 @@
+{% extends 'Master.html' %}
+{% load static %}
+
+ 
+ {% block Content %}
+    <div class="profileC">
+        <div>
+            <img src="{% static 'attendance.png' %}" alt="">
+        </div>
+        <div>
+            <p id="showSearchForm" title="Search form">Search Option:</p><br/>
+            <form  method="GET" id="searchfrom">
+                
+                {{SF.form}}
+                <input type="submit" value="Search" id="searchtn">
+            </form>
+            
+            <h1>training list</h1>
+            <table border="1" class="stagaire">
+                <tr>
+                    <th>stagaire</th>
+                    <th>Date Debut</th>
+                    <th>Date Fin</th>
+                    <th>Societe</th>
+                    <th>Rapport</th>
+                    <th colspan="3">Options</th>
+                    
+                </tr>
+               
+                {% for A in lst %}
+                    <tr>
+                        <td><a class="des" href="{% url 'stage:stgDetaile' slg=A.StageSlug %}">{{A.stagaire}}</a></td>
+                        <td>{{A.DateDebut}}</td>
+                        <td>{{A.DateFin}}</td>
+                        <td>{{A.Societe}}</td>
+                        <td>{{A.Rapport}}</td>
+                        <td><a class="des del" href="{% url 'stage:deletestg' A.id %}">Delete</a></td>
+                        <td><a class="des upd" href="{% url 'stage:editstg' A.id %}">Update</a></td>
+                        <td><a class="des upd" href="{% url 'stage:Notify' A.id %}">Notify</a></td>
+                        
+
+                        
+                    </tr>
+                {% endfor %}
+            </table>
+            
+        
+            <a href="{% url 'stage:newstg' %}">add new training</a>
+        </div>
+    </div>
+     
+ {% endblock Content %}
+    
+   

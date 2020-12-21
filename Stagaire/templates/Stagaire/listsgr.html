@@ -1,0 +1,54 @@
+{% extends 'Master.html' %}
+{% load static %}
+
+ 
+ {% block Content %}
+    <div class="profileC">
+        <div>
+            <img src="{% static 'attendance.png' %}" alt="">
+        </div>
+        <div>
+            <p id="showSearchForm" title="Search form">Search Option:</p><br/>
+            <form  method="GET" id="searchfrom">
+                
+                {{SF.form}}
+                <input type="submit" value="Search" id="searchtn">
+            </form>
+            
+            <h1>Trainers list</h1>
+            <table border="1" class="stagaire">
+                <tr>
+                    <th>nom</th>
+                    <th>prenom</th>
+                    <th>dateDeNaissance</th>
+                    <th>telephone</th>
+                    <th>mail</th>
+                    <th>Sexe</th>
+                    <th>filiere</th>
+                    <th>niveau</th>
+                    <th>Option</th>
+                    
+                    
+                </tr>
+               
+                {% for A in lst %}
+                    <tr>
+                        <td>{{A.nom}}</td>
+                        <td><a class="des" href="{% url 'stagaire:detail' Slg=A.StagaireSlug %}">{{A.prenom}}</a></td>
+                        <td>{{A.dateDeNaissance}}</td>
+                        <td>{{A.telephone}}</td>
+                        <td>{{A.halfMail}}</td>
+                        <td>{{A.Sexe}}</td>
+                        <td>{{A.filiere}}</td>
+                        <td>{{A.niveau}}</td>
+                        <td><a class="des upd" href="{% url 'stagaire:EditStagaire' A.id %}">Update</a></td>
+                        
+                    </tr>
+                {% endfor %}
+            </table>
+        
+        </div>
+    </div>
+     
+ {% endblock Content %}
+    

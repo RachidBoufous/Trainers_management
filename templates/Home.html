@@ -1,0 +1,37 @@
+{% extends 'Master.html' %}
+{% load static %}
+
+{% block Content %}
+    <!-- this is the main page body if the user is not logged in  -->
+    
+    {% if not user.is_authenticated %}
+    <div class="body">
+        <div class="img">
+            <img src="{% static 'main1.png' %}" alt="">    
+        </div>
+        <div class="intro">
+            <h4>welcome</h4>
+            <h3>This plateform helps you manage your info as a <span>&nbsp;trainer,&nbsp;</span>also keeps u up to date with  <span>&nbsp;training dates&nbsp;</span>  and <span>&nbsp;summaries&nbsp;</span>. </h3>   
+        </div>
+    </div>
+    {% else %}
+        
+    
+    <!-- this is the body it the user is logged in -->
+    <div class="body2">
+        <div class="container">
+            <img src="{% static 'training.png' %}" alt="Avatar" class="image" style="width:100%">
+            <div class="middle">
+              <div class="text"><a href="{% url 'stage:stglist' %}">Training</a> </div>
+            </div>
+          </div>
+          <div class="container">
+            <img src="{% static 'trainer.png' %}" alt="Avatar" class="image" style="width:100%">
+            <div class="middle">
+              <div class="text"><a href="{% url 'stagaire:liststg' %}">Trainers</a> </div>
+            </div>
+          </div>
+    </div>
+    {% endif %}
+{% endblock Content %}
+    

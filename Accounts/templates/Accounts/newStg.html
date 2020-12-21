@@ -1,0 +1,24 @@
+{% extends 'Master.html' %}
+{% load static %}
+
+{% block Content %}
+ <!--  -->
+    <div class="profileC">
+        <div>
+            <img src="{% static 'Completed.png' %}" alt="">
+        </div>
+        <div>
+            <h1>Complete the following Registretion info to add a new trainner linked to the current user</h1>
+            <form action="{% url 'Accounts:editinfo' %}" method="post">
+                {% csrf_token %}
+                {{form}}
+                <input type="submit" value="Save Changes">
+            </form>
+        </div>
+    </div>
+    <!--  -->
+{% endblock Content %}
+    
+
+
+     

@@ -1,0 +1,29 @@
+
+ {% extends 'Master.html' %}
+ {% load static %}
+ 
+  
+  {% block Content %}
+     <div class="profileC">
+         <div>
+             <img src="{% static 'student.png' %}" alt="">
+         </div>
+         <div>
+             <h1>Training Information</h1>
+             <h1>{{objs.nom}}&nbsp;{{objs.prenom}}</h1>
+             <p>Date Debut:&nbsp;<span>{{obj.DateDebut}}</span></p>
+             <br/>
+             <p>Date Fin:&nbsp;<span>{{obj.DateFin}}</span></p><br/>
+             <p>Societe:&nbsp;<span>{{obj.Societe}}</span></p><br/>
+             <p>Rapport:&nbsp;<span>{{obj.Rapport.url}}</span></p><br/>
+             <a href="{% url 'stage:ViewRapport' rprt_link=obj.Rapport %}">view Rapport</a>
+                <!-- <a href="{% url 'Accounts:userEdit' %}">Edit Info</a> -->
+         </div>
+     </div>
+      
+  {% endblock Content %}
+ 
+
+    
+        
+*

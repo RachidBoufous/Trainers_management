@@ -1,0 +1,32 @@
+
+ {% extends 'Master.html' %}
+ {% load static %}      
+ 
+  
+  {% block Content %}
+     <div class="profileC">
+         <div>
+             <img src="{% static 'student.png' %}" alt="">
+         </div>
+         <div>
+             <h1>trainer Information</h1>
+             <h1>{{stger.nom}}&nbsp;{{stger.prenom}} </h1>
+             <p>Date de Naissance:&nbsp;<span>{{stger.dateDeNaissance}}</span></p>
+             <br/>
+             <p>telephone:&nbsp;<span>{{stger.telephone}}</span></p><br/>
+             <p>Mail:&nbsp;<span>{{stger.mail}}</span></p><br/>
+             <p>Sexe:&nbsp;<span>{{stger.Sexe}}</span></p><br/>
+             <p>filiere:&nbsp;<span>{{stger.filiere}}</span></p><br/>
+             <p>niveau:&nbsp;<span>{{stger.niveau}}</span></p><br/>
+ 
+         
+         <!-- <a href="{% url 'Accounts:userEdit' %}">Edit Info</a> -->
+         </div>
+     </div>
+      
+  {% endblock Content %}
+ 
+
+    
+        
+*

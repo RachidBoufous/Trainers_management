@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static  %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Master.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome.css' %}">
+
+    <link rel="icon" href="{% static 'logo.png' %}">
+
+    <script src="{% static 'jquery-3.5.0.min.js' %}">
+    </script>
+    <script src="{% static 'master.js' %}"></script>
+    <title>TRNmanage</title>
+</head>
+
+<body>
+    <div class="nav">
+
+        <div class="left-items">
+            <a href="{% url 'home' %}"><img src="{% static 'logo.png' %}" alt="brand name here"></a>
+
+        </div>
+
+        <div class="right-items">
+            <div>
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'AboutPage' %}">About</a>
+            </div>
+
+
+            {% if not user.is_authenticated  %}
+
+            <div class="dropdown">
+                <span>GetStarted</span>
+                <div class="dropdown-content">
+                    <a href="{% url 'Accounts:SignUp' %}">Sign up</a>
+                    <a href="{% url 'Accounts:Loginview' %}">log in</a>
+                </div>
+            </div>
+
+            {% else %}
+            <div class="dropdown">
+                <span>profile</span>
+                <div class="dropdown-content">
+                    <a href="{%  url 'Accounts:profile' %}">User Profile</a>
+                    <a href="{% url 'stagaire:STGProfile' %}">Trainer Profile</a>
+                </div>
+            </div>
+            <div>
+
+                <form class="logout-link" action="{% url 'Accounts:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+
+
+    </div>
+    {% block Content %}
+
+    {% endblock Content %}
+    <div class="footer">
+        built & design with love <span>&#10084;</span> by <span>Rachid Boufous</span>
+        <br />
+        all right reserved &copy; 2020
+
+    </div>
+    <div class="loader-wrapper">
+        <div id="preloader"></div>
+        
+    </div>
+</body>
+</html>

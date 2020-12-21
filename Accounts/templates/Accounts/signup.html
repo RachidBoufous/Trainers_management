@@ -1,0 +1,22 @@
+{% extends 'Master.html' %}
+{% load static %}
+
+{% block Content %}
+ <!--  -->
+    <div class="profileC">
+        <div>
+            <img src="{% static 'sign-up.png' %}" alt="">
+        </div>
+        <div>
+            <h1>sign up</h1>
+            <form action="{% url 'Accounts:SignUp' %}" method="post">
+                {% csrf_token %}
+                {{form}}
+                <input type="submit" value="SignUp">
+            </form>
+        </div>
+    </div>
+    <!--  -->
+{% endblock Content %}
+   
+  
